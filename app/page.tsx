@@ -1,113 +1,203 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Description } from "@radix-ui/react-dialog";
+
 import Image from "next/image";
+import React, { useState, useEffect } from "react";
+const images = [
+  "/assets/1.jpg",
+  "/assets/2.jpg",
+  "/assets/3.jpg",
+  "/assets/4.jpg",
+];
+
+const dataSections = [
+  {
+    title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
+    image: "/assets/section/Picture1.png",
+    description:
+      "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
+  },
+  {
+    title: "Sức mạnh chữa lành của thiên nhiên",
+    image: "/assets/section/Picture2.png",
+    description:
+      "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
+  },
+  {
+    title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
+    image: "/assets/section/Picture1.png",
+    description:
+      "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
+  },
+  {
+    title: "Sức mạnh chữa lành của thiên nhiên",
+    image: "/assets/section/Picture2.png",
+    description:
+      "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
+  },
+  {
+    title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
+    image: "/assets/section/Picture1.png",
+    description:
+      "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
+  },
+  {
+    title: "Sức mạnh chữa lành của thiên nhiên",
+    image: "/assets/section/Picture2.png",
+    description:
+      "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
+  },
+];
+
+const dataHtx = [
+  {
+    id: 1,
+    name: "Nguyen Van A",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rerum labore aliquid magnam ratione ad, quis, placeat soluta ipsa",
+    image: "/assets/htx/1.jpg",
+  },
+  {
+    id: 2,
+    name: "Nguyen Van A",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rerum labore aliquid magnam ratione ad, quis, placeat soluta ipsa",
+    image: "/assets/htx/1.jpg",
+  },
+  {
+    id: 3,
+    name: "Nguyen Van A",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rerum labore aliquid magnam ratione ad, quis, placeat soluta ipsa",
+    image: "/assets/htx/1.jpg",
+  },
+  {
+    id: 4,
+    name: "Nguyen Van A",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita rerum labore aliquid magnam ratione ad, quis, placeat soluta ipsa",
+    image: "/assets/htx/1.jpg",
+  },
+];
 
 export default function Home() {
+  const [currentImageIndex, setCurrentIndexImg] = useState(0);
+  const [nextImageIndex, setNextImageIndex] = useState(2);
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentIndexImg((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+      setNextImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+    return () => clearInterval(intervalId);
+  }, []);
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <div className="bg-[#FFFCF4] dark:bg-background pb-10">
+        <div className="max-w-screen-lg m-auto  p-2 px-4 flex gap-3  relative">
+          <div className="md:flex m-auto items-center justify-center  gap-2">
+            <div className="p-2 w-full bg-lime-200 rounded-xl my-2">
+              <Image
+                src={images[currentImageIndex]}
+                alt="Slideshow"
+                height={400}
+                width={1920}
+                className="rounded-xl object-cover w-full h-full"
+              />
+            </div>
+            <div className="rounded-xl  p-2 w-full bg-lime-200 ">
+              <Image
+                src={images[nextImageIndex]}
+                alt="Slideshow"
+                height={400}
+                width={1920}
+                className="rounded-xl object-cover w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center mt-10 p-4">
+          <Carousel className="max-w-screen-lg w-full ">
+            <CarouselContent className="">
+              {dataSections.map((data, index) => (
+                <CarouselItem
+                  key={index}
+                  className="md:basis-1/3 lg:basis-1/3 "
+                >
+                  <div className="p-1">
+                    <Card className="relative h-[400px]">
+                      <Image
+                        src={data.image}
+                        alt=""
+                        width={2000}
+                        height={1000}
+                        className="w-full h-72 rounded-md scale-y-75 -translate-y-10"
+                      ></Image>
+                      <CardContent className="flex items-center -translate-y-14 ">
+                        <div className="space-y-4">
+                          <CardTitle>{data.title}</CardTitle>
+                          <CardDescription>{data.description}</CardDescription>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <>
+        <main className="mx-auto mt-4 max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]">
+          <div className="p-4 flex items-center justify-center ">
+            <CardTitle>Thành viên hợp tác xã</CardTitle>
+          </div>
+          <div className="container max-w-screen-xl  p-10">
+            <div className=" m-auto w-full flex gap-5 flex-wrap justify-center">
+              {dataHtx.map((data) => (
+                <Card className="w-[475px] flex" key={data.id}>
+                  <Image
+                    src={data.image}
+                    width={300}
+                    height={600}
+                    alt=""
+                    className="w-2/5 h-full rounded-xl"
+                  ></Image>
+                  <CardHeader>
+                    <CardTitle>{data.name}</CardTitle>
+                    <CardContent>engineer</CardContent>
+                    <CardDescription>{data.description}</CardDescription>
+                  </CardHeader>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </main>
+      </>
+    </>
   );
 }
