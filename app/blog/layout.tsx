@@ -4,7 +4,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { RiSearchLine } from "react-icons/ri";
-
+export const metadata = {
+  title: "Blog",
+};
 const categories = [
   {
     id: 1,

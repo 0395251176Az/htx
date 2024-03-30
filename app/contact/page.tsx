@@ -64,7 +64,7 @@ const contact = () => {
           </div>
         </div>
         <div className="mt-4 grid items-center justify-center gap-20 sm:grid-cols-2 xl:grid-cols-5">
-          <div className="col-span-3">
+          <div className="xl:col-span-3">
             <div>
               <video
                 autoPlay
@@ -75,11 +75,11 @@ const contact = () => {
               ></video>
             </div>
           </div>
-          <div className="col-span-2 flex flex-col items-center gap-10">
+          <div className="flex flex-col items-center gap-10 xl:col-span-2">
             <h1 className="text-4xl">Contact with Our</h1>
             <form
               // onSubmit={form.handleSubmit(onSubmit)}
-              className="w-4/5 space-y-6"
+              className="space-y-6 sm:w-5/6 xl:w-4/5"
             >
               <Input placeholder="Username..." />
               <Input placeholder="Title..." />
