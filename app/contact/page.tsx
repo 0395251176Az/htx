@@ -76,7 +76,7 @@ const contact = () => {
             </div>
           </div>
           <div className="col-span-2 flex flex-col items-center gap-10">
-            <h1 className="text-4xl">Contact with me</h1>
+            <h1 className="text-4xl">Contact with Our</h1>
             <form
               // onSubmit={form.handleSubmit(onSubmit)}
               className="w-4/5 space-y-6"
