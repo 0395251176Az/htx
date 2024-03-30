@@ -19,6 +19,7 @@ import {
 import { Description } from "@radix-ui/react-dialog";
 
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 const images = [
   "/assets/1.jpg",
@@ -29,36 +30,42 @@ const images = [
 
 const dataSections = [
   {
+    id: 1,
     title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
     image: "/assets/section/Picture1.png",
     description:
       "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
   },
   {
+    id: 2,
     title: "Sức mạnh chữa lành của thiên nhiên",
     image: "/assets/section/Picture2.png",
     description:
       "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
   },
   {
+    id: 1,
     title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
     image: "/assets/section/Picture1.png",
     description:
       "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
   },
   {
+    id: 2,
     title: "Sức mạnh chữa lành của thiên nhiên",
     image: "/assets/section/Picture2.png",
     description:
       "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
   },
   {
+    id: 1,
     title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
     image: "/assets/section/Picture1.png",
     description:
       "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
   },
   {
+    id: 2,
     title: "Sức mạnh chữa lành của thiên nhiên",
     image: "/assets/section/Picture2.png",
     description:
@@ -103,10 +110,10 @@ export default function Home() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentIndexImg((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1,
       );
       setNextImageIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1,
       );
     }, 3000);
     return () => clearInterval(intervalId);
@@ -115,31 +122,31 @@ export default function Home() {
   const [count, setCount] = React.useState(0);
   return (
     <>
-      <div className="bg-[#FFFCF4] dark:bg-background pb-10">
-        <div className="max-w-screen-lg m-auto  p-2 px-4 flex gap-3  relative">
-          <div className="md:flex m-auto items-center justify-center  gap-2">
-            <div className="p-2 w-full bg-lime-200 rounded-xl my-2">
+      <div className="bg-[#FFFCF4] pb-10 dark:bg-background">
+        <div className="relative m-auto  flex max-w-screen-lg gap-3 p-2  px-4">
+          <div className="m-auto items-center justify-center gap-2  md:flex">
+            <div className="my-2 w-full rounded-xl bg-lime-200 p-2">
               <Image
                 src={images[currentImageIndex]}
                 alt="Slideshow"
                 height={400}
                 width={1920}
-                className="rounded-xl object-cover w-full h-full"
+                className="h-full w-full rounded-xl object-cover"
               />
             </div>
-            <div className="rounded-xl  p-2 w-full bg-lime-200 ">
+            <div className="w-full  rounded-xl bg-lime-200 p-2 ">
               <Image
                 src={images[nextImageIndex]}
                 alt="Slideshow"
                 height={400}
                 width={1920}
-                className="rounded-xl object-cover w-full h-full"
+                className="h-full w-full rounded-xl object-cover"
               />
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center mt-10 p-4">
-          <Carousel className="max-w-screen-lg w-full ">
+        <div className="mt-10 flex items-center justify-center p-4">
+          <Carousel className="w-full max-w-screen-lg ">
             <CarouselContent className="">
               {dataSections.map((data, index) => (
                 <CarouselItem
@@ -153,11 +160,13 @@ export default function Home() {
                         alt=""
                         width={2000}
                         height={1000}
-                        className="w-full h-72 rounded-md scale-y-75 -translate-y-10"
+                        className=" h-72 w-full -translate-y-10 scale-y-75 rounded-md"
                       ></Image>
-                      <CardContent className="flex items-center -translate-y-14 ">
+                      <CardContent className="flex -translate-y-14 items-center ">
                         <div className="space-y-4">
-                          <CardTitle>{data.title}</CardTitle>
+                          <CardTitle>
+                            <Link href={`/blog/${data.id}`}>{data.title}</Link>
+                          </CardTitle>
                           <CardDescription>{data.description}</CardDescription>
                         </div>
                       </CardContent>
@@ -173,19 +182,19 @@ export default function Home() {
       </div>
       <>
         <main className="mx-auto mt-4 max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]">
-          <div className="p-4 flex items-center justify-center ">
+          <div className="flex items-center justify-center p-4 ">
             <CardTitle>Thành viên hợp tác xã</CardTitle>
           </div>
           <div className="container max-w-screen-xl  p-10">
-            <div className=" m-auto w-full flex gap-5 flex-wrap justify-center">
+            <div className=" m-auto flex w-full flex-wrap justify-center gap-5">
               {dataHtx.map((data) => (
-                <Card className="w-[475px] flex" key={data.id}>
+                <Card className="flex w-[475px]" key={data.id}>
                   <Image
                     src={data.image}
                     width={300}
                     height={600}
                     alt=""
-                    className="w-2/5 h-full rounded-xl"
+                    className="h-full w-2/5 rounded-xl"
                   ></Image>
                   <CardHeader>
                     <CardTitle>{data.name}</CardTitle>

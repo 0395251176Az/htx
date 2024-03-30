@@ -17,11 +17,17 @@ const links = [
   },
   {
     id: 2,
+    title: "About",
+    url: "/about",
+  },
+
+  {
+    id: 3,
     title: "Blog",
     url: "/blog",
   },
   {
-    id: 3,
+    id: 4,
     title: "Contact",
     url: "/contact",
   },
@@ -29,16 +35,20 @@ const links = [
 
 const Navbar = () => {
   const pathName = usePathname();
+
   return (
-    <nav className="sticky bg-primary-foreground p-2 px-10 md:px-40 max-w-full m-auto mt-4  border-b-[1px]  top-0 z-50 ">
-      <div className="flex justify-between items-center ">
-        <LogoGreen />
-        <ul className="hidden md:flex gap-10 ">
+    <nav className="sticky top-0 z-50 m-auto mt-1 max-w-full border-b-[1px] bg-primary-foreground  p-4  px-10 md:px-40 ">
+      {/* flex items-center justify-between */}
+      <div className="relative grid grid-cols-5 items-center justify-between  ">
+        <div className="col-span-4 flex justify-self-start md:col-span-1">
+          <LogoGreen />
+        </div>
+        <ul className="hidden items-center justify-center gap-10 md:col-span-3 md:flex ">
           {links.map((link) => (
             <li key={link.id}>
               <Link
                 href={link.url}
-                className="relative hover:text-primary transition-all text-lg font-medium"
+                className="relative text-lg font-medium transition-all hover:text-gray-400 "
               >
                 {link.url === pathName && (
                   <motion.span
@@ -46,7 +56,7 @@ const Navbar = () => {
                     animate={{ y: 0 }}
                     transition={{ type: "tween" }}
                     layoutId="underline"
-                    className={`absolute left-0 top-full h-[1px] bg-primary w-full`}
+                    className={`absolute left-0 top-full h-[1px] w-full bg-primary`}
                   />
                 )}
                 {link.title}
@@ -54,14 +64,16 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-        <div className=" flex gap-2 items-center">
-          <div className="hidden md:flex">
-            <Search placeholder={"Search..."} />
+        <div className="col-span-1 flex justify-self-end ">
+          <div className=" col-span-1 flex items-center gap-2">
+            <div className="hidden md:flex">
+              <Search placeholder={"Search..."} />
+            </div>
+            <div className="hidden md:flex">
+              <ModeToggle />
+            </div>
           </div>
-          <div className="hidden md:flex">
-            <ModeToggle />
-          </div>
-          <div className="md:hidden">
+          <div className="flex items-end md:hidden ">
             <MobileNav />
           </div>
         </div>

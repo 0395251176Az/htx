@@ -5,7 +5,7 @@ const LogoGreen = () => {
   return (
     <div className="image relative flex items-center gap-2">
       <Image src={"/assets/icons/logo.png"} width={40} height={40} alt="" />
-      <p className="text-[hsl(143,54%,64%)] font-sans font-semibold text-xl ">
+      <p className="font-sans text-xl font-semibold text-[hsl(143,54%,64%)] ">
         GreenFarm
       </p>
     </div>

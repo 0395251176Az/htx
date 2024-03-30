@@ -73,4 +73,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  p {
+    @apply text-sm;
+  }
+  h1 {
+    @apply text-lg font-medium;
+  }
 }
