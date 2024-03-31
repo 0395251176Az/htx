@@ -31,6 +31,11 @@ const links = [
     title: "Contact",
     url: "/contact",
   },
+  {
+    id: 4,
+    title: "About",
+    url: "/about",
+  },
 ];
 const MobileNav = () => {
   return (

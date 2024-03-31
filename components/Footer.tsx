@@ -41,6 +41,11 @@ const links = [
     title: "Contact",
     url: "/contact",
   },
+  {
+    id: 4,
+    title: "About",
+    url: "/about",
+  },
 ];
 const data = [
   "Hợp tác xã nông nghiệp du lịch greenfarm phước bình",
