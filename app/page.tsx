@@ -24,7 +24,7 @@ import React, { useState, useEffect } from "react";
 const images = [
   "/assets/1.jpg",
   "/assets/2.jpg",
-  "/assets/3.jpg",
+  "/assets/3.png",
   "/assets/4.jpg",
 ];
 
@@ -46,14 +46,14 @@ const dataSections = [
   {
     id: 1,
     title: "Bao nhiêu loài đã tuyệt chủng do biến đổI khí hậu",
-    image: "/assets/section/Picture1.png",
+    image: "/assets/section/Picture3.jpg",
     description:
       "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật....",
   },
   {
     id: 2,
     title: "Sức mạnh chữa lành của thiên nhiên",
-    image: "/assets/section/Picture2.png",
+    image: "/assets/section/Picture4.jpg",
     description:
       "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
   },
@@ -67,7 +67,7 @@ const dataSections = [
   {
     id: 2,
     title: "Sức mạnh chữa lành của thiên nhiên",
-    image: "/assets/section/Picture2.png",
+    image: "/assets/section/Picture3.jpg",
     description:
       "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của....",
   },
@@ -78,7 +78,7 @@ const dataHtx = [
     id: 1,
     name: "Travel to Ninh Thuận",
     description:
-    "Green Farm Ninh Thuận là điểm đến lý tưởng cho những ai yêu thích du lịch sinh thái và nông nghiệp. Với không gian xanh mướt của cây trái, cùng với các hoạt động như thu hoạch, tham gia trại nông.",
+      "Green Farm Ninh Thuận là điểm đến lý tưởng cho những ai yêu thích du lịch sinh thái và nông nghiệp. Với không gian xanh mướt của cây trái, cùng với các hoạt động như thu hoạch, tham gia trại nông.",
     image: "/assets/htx/1.png",
   },
   {
@@ -183,18 +183,23 @@ export default function Home() {
       <>
         <main className="mx-auto mt-4 max-w-[540px] sm:max-w-[604px] md:max-w-[720px] lg:max-w-[972px] xl:max-w-full xl:px-12 2xl:max-w-[1400px]">
           <div className="flex items-center justify-center p-4 ">
-            <CardTitle>Sản phẩm Green Farm</CardTitle>
+            <CardTitle className="text-[hsl(143,54%,64%)]">
+              Trải Nghiệm Thiên Nhiên Cùng Green Farm
+            </CardTitle>
           </div>
-          <div className="container max-w-screen-xl  p-10">
+          <div className="container max-w-screen-2xl  sm:pt-10 xl:p-10">
             <div className=" m-auto flex w-full flex-wrap justify-center gap-5">
               {dataHtx.map((data) => (
-                <Card className="flex w-[475px] bg-green-100  items-center" key={data.id}>
+                <Card
+                  className="items-center bg-green-100  sm:flex-col xl:flex xl:w-[475px] xl:flex-row"
+                  key={data.id}
+                >
                   <Image
                     src={data.image}
                     width={300}
                     height={600}
                     alt=""
-                    className="h-52 w-2/5 pl-2 object-cover items-center rounded-xl"
+                    className="items-center rounded-xl object-cover pl-2 xl:h-52 xl:w-2/5"
                   ></Image>
                   <CardHeader>
                     <CardTitle>{data.name}</CardTitle>

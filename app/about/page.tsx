@@ -70,9 +70,11 @@ const data = [
 const aboutPage = () => {
   return (
     <div className=" bg-gradient-to-t from-green-200">
-      <div className="container max-w-screen-xl p-10 px-20">
+      <div className="container max-w-screen-xl xl:p-10 xl:px-20">
         <div className="title flex flex-col items-center ">
-          <h1 className="text-2xl">VỀ CHÚNG TÔI</h1>
+          <h1 className="text-2xl text-[hsl(143,54%,64%)]">
+            Green Fram Ninh Thuận
+          </h1>
         </div>
         {data.map((data) => (
           <div

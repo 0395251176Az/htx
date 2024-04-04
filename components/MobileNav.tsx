@@ -18,23 +18,23 @@ import LogoGreen from "./LogoGreen";
 const links = [
   {
     id: 1,
-    title: "Home",
+    title: "Trang Chủ",
     url: "/",
   },
   {
     id: 2,
-    title: "Blog",
-    url: "/blog",
+    title: "Chúng Tôi",
+    url: "/about",
   },
   {
     id: 3,
-    title: "Contact",
-    url: "/contact",
+    title: "Tin Tức",
+    url: "/blog",
   },
   {
     id: 4,
-    title: "About",
-    url: "/about",
+    title: "Liên Lạc",
+    url: "/contact",
   },
 ];
 const MobileNav = () => {

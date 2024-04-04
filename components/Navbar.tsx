@@ -1,9 +1,11 @@
 "use client";
+import Image from "next/image";
 import React from "react";
 import { ModeToggle } from "./darkmode";
 import MobileNav from "./MobileNav";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import Search from "./Search";
 import LogoGreen from "./LogoGreen";
@@ -46,7 +48,7 @@ const Navbar = () => {
             <li key={link.id}>
               <Link
                 href={link.url}
-                className="relative text-lg font-medium transition-all hover:text-gray-700 "
+                className="relative text-lg font-medium transition-all hover:text-gray-400 "
               >
                 {link.url === pathName && (
                   <motion.span

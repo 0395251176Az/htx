@@ -106,8 +106,9 @@ const Footer = (props: Props) => {
                 <h1 className="text-2xl">Links</h1>
                 <div className="flex justify-center gap-4 md:flex-col">
                   {links.map((link) => (
-                    <Link href={link.url} key={link.id}>
+                    <Link href={link.url} key={link.id} className="text-center">
                       {link.title}
+                      <hr/>
                     </Link>
                   ))}
                 </div>
@@ -166,7 +167,7 @@ const Footer = (props: Props) => {
           </p>
           &copy;
           <LogoGreen />
-          <p>All right reserved.</p>
+          <p>Team Eko Smith</p>
         </div>
       </footer>
     );

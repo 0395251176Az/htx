@@ -25,7 +25,7 @@ const id = [
     date: "January 23 2022",
     description:
       "Thế giới đã và đang chứng kiến sự đa dạng tuyệt vời của các loài động thực vật. Đứng trước những dự đoán về hậu quả của Biến đổi khí hậu, việc bảo vệ sự đa dạng sinh học này thực sự là một nhiệm vụ cấp bách...",
-    img: "/assets/section/Picture1.png",
+    img: "/assets/section/Picture3.jpg",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ const id = [
     date: "January 23 2022",
     description:
       "Rừng không đường mòn, cây xanh um tùm, cảnh đẹp thanh bình và bản hòa nhạc của các loài chim là kho báu tự nhiên mà ai cần phải trải nghiệm ít nhất một lần trong đời..",
-    img: "/assets/section/Picture2.png",
+    img: "/assets/section/Picture4.jpg",
   },
 ];
 export default function page() {
@@ -50,7 +50,7 @@ export default function page() {
               alt=""
               width={500}
               height={200}
-              className="h-[400px] w-full rounded-sm object-fill transition hover:scale-105 hover:bg-indigo-500 hover:shadow-sm hover:shadow-slate-300"
+              className="w-full rounded-sm object-cover transition hover:scale-105 hover:bg-indigo-500 hover:shadow-sm hover:shadow-slate-300 "
             />
           </div>
           <div className="mt-4 flex flex-col gap-4">
