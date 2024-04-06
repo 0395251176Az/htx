@@ -101,9 +101,7 @@ export default function Blog({
               alt=""
               className="rounded-sm"
             />
-            <h2 className="p-30 absolute -translate-x-6 -translate-y-20 text-center text-2xl font-semibold text-background">
-              How To Implement New Business Strategy
-            </h2>
+            <h2 className="p-30 absolute -translate-x-6 -translate-y-20 text-center text-2xl font-semibold text-background"></h2>
           </div>
         </div>
       </div>

@@ -28,11 +28,21 @@ const links = [
   },
   {
     id: 3,
+    title: "Nông Nghiệp",
+    url: "/sanpham",
+  },
+  {
+    id: 4,
+    title: "Từ Thiện",
+    url: "/tuthien",
+  },
+  {
+    id: 5,
     title: "Tin Tức",
     url: "/blog",
   },
   {
-    id: 4,
+    id: 6,
     title: "Liên Lạc",
     url: "/contact",
   },

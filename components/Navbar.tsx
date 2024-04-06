@@ -20,14 +20,23 @@ const links = [
     title: "Chúng Tôi",
     url: "/about",
   },
-
   {
     id: 3,
+    title: "Nông Nghiệp",
+    url: "/sanpham",
+  },
+  {
+    id: 4,
+    title: "Từ Thiện",
+    url: "/tuthien",
+  },
+  {
+    id: 5,
     title: "Tin Tức",
     url: "/blog",
   },
   {
-    id: 4,
+    id: 6,
     title: "Liên Hệ",
     url: "/contact",
   },

@@ -84,14 +84,22 @@ const aboutPage = () => {
             {data.id % 2 !== 0 ? (
               <div className="col-span-3 items-center">
                 <div className="flex items-center  rounded-lg">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    className="h-full w-full rounded-3xl bg-transparent"
-                  >
-                    <source src={data.video} type="video/mp4" />
-                  </video>
+                  {data.video && (
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      className="h-full w-full rounded-3xl bg-transparent"
+                    >
+                      <source src={data.video} type="video/mp4" />
+                    </video>
+                  )}
+                  {data.img && (
+                    <img
+                      src={data.img}
+                      className="h-full w-full rounded-3xl bg-transparent"
+                    />
+                  )}
                 </div>
               </div>
             ) : (

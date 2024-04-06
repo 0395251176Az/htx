@@ -108,7 +108,7 @@ const Footer = (props: Props) => {
                   {links.map((link) => (
                     <Link href={link.url} key={link.id} className="text-center">
                       {link.title}
-                      <hr/>
+                      <hr />
                     </Link>
                   ))}
                 </div>
@@ -163,11 +163,11 @@ const Footer = (props: Props) => {
         </div>
         <div className="flex w-full items-center justify-center gap-2 border-t-2 p-4">
           <p>
-            &copy; <span>Trung & Vương </span> {new Date().getFullYear()}
+            &copy; <span>Trung E Vương </span> {new Date().getFullYear()}
           </p>
           &copy;
           <LogoGreen />
-          <p>Team Eko Smith</p>
+          <p></p>
         </div>
       </footer>
     );
